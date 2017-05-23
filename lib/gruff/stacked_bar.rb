@@ -23,6 +23,9 @@ class Gruff::StackedBar < Gruff::Base
       @bar_spacing ||= 0.9
       @segment_spacing ||= 1
       @bar_width = @graph_width / @column_count.to_f
+      p " - - - "*100
+      p @bar_width
+      p " - - - "*100
       padding = (@bar_width * (1 - @bar_spacing)) / 2
     
       @d = @d.stroke_opacity 0.0
