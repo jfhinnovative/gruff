@@ -22,17 +22,19 @@ class Gruff::StackedBar < Gruff::Base
       # Columns sit stacked.
       @bar_spacing ||= 0.9
       @segment_spacing ||= 1
-      @bar_width = @graph_width / @column_count.to_f
-      p " - - - "*100
-      p @bar_width
-      p " - - - "*100
+
+      previous_bar_width = @graph_width / @column_count.to_f
+      @bar_width = 117.28645833333333
+      
+      # padding = (previous_bar_width * (1 - @bar_spacing)) / 2
       padding = (@bar_width * (1 - @bar_spacing)) / 2
+      
     
       @d = @d.stroke_opacity 0.0
       
       height = Array.new(@column_count, 0)
     
-      @norm_data.each_with_index do |data_row, row_index|      
+      @norm_data.each_with_index do |data_row, row_index|
         data_row[DATA_VALUES_INDEX].each_with_index do |data_point, point_index|
           @d = @d.fill data_row[DATA_COLOR_INDEX]
           
